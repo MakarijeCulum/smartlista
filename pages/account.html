@@ -1,0 +1,54 @@
+<section id="account" class="page-section">
+  <header class="account-header">
+    <h1>Nalog</h1>
+    <p>Pregled vašeg korisničkog naloga i podešavanja.</p>
+    <div id="settingsIcon" class="settings-icon" title="Podešavanja">⚙️</div>
+  </header>
+
+  <!-- Ako korisnik NIJE prijavljen -->
+  <div id="authOptions" class="auth-buttons">
+    <button id="showLogin" class="btn-primary">Prijava</button>
+    <button id="showRegister" class="btn-secondary">Registracija</button>
+  </div>
+
+  <div id="loginForm" class="auth-form" style="display: none;">
+    <h2>Prijava</h2>
+    <input type="email" id="loginEmail" placeholder="Email" />
+    <input type="password" id="loginPassword" placeholder="Lozinka" />
+    <button id="loginSubmit" class="btn-primary">Prijavi se</button>
+  </div>
+
+  <div id="registerForm" class="auth-form" style="display: none;">
+    <h2>Registracija</h2>
+    <input type="text" id="registerName" placeholder="Ime i prezime" />
+    <input type="email" id="registerEmail" placeholder="Email" />
+    <input type="password" id="registerPassword" placeholder="Lozinka" />
+    <button id="registerSubmit" class="btn-primary">Registruj se</button>
+  </div>
+
+  <!-- Ako korisnik JESTE prijavljen -->
+  <div id="userInfo" class="user-info" style="display: none;">
+    <h2 id="userGreeting">Dobrodošli!</h2>
+    <div class="user-field">
+      <strong>Ime i prezime:</strong> <span id="userName">(učitavanje...)</span>
+    </div>
+    <div class="user-field">
+      <strong>Email:</strong> <span id="userEmail"></span>
+    </div>
+    <div class="user-field">
+      <strong>ID korisnika:</strong> <span id="userId"></span>
+    </div>
+    <button id="logoutBtn" class="btn-secondary">Odjava</button>
+  </div>
+
+  <!-- Popup podešavanja -->
+  <div id="settingsPopup" class="settings-popup">
+    <h3>Podešavanja</h3>
+    <ul class="settings-list">
+      <li><a href="#">Notifikacije (uskoro)</a></li>
+      <li><a href="#">Light / Dark mod (uskoro)</a></li>
+      <li><a href="#">Kontakt podrška (uskoro)</a></li>
+      <li><a href="#" id="logoutLink">Odjavi se</a></li>
+    </ul>
+  </div>
+</section>

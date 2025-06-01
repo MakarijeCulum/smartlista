@@ -1,0 +1,860 @@
+/* Osnovne promenljive boja i font */
+:root {
+  --bg: #1f2235;
+  --card-bg: #2b2f4a;
+  --accent: #4f9cff;
+  --accent-hover: #3a82e0;
+  --text: #e0e0e0;
+  --text-muted: #8a8f9b;
+  --border-radius: 12px;
+  --transition: 0.3s ease;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* KONTAINER APLIKACIJE */
+.app-container {
+  max-width: 480px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 0.25rem;
+  user-select: none;
+}
+
+header p {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 1rem;
+  user-select: none;
+}
+
+/* NAVIGACIJA */
+nav#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--card-bg);
+  box-shadow: 0 -2px 10px var(--shadow);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  z-index: 1000;
+}
+
+nav#bottom-nav button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color var(--transition);
+  user-select: none;
+}
+
+nav#bottom-nav button.active,
+nav#bottom-nav button:hover {
+  color: var(--accent);
+}
+
+nav#bottom-nav svg {
+  display: block;
+  margin: 0 auto;
+}
+
+/* SEKCIJE (STRANICE) */
+section {
+  flex-grow: 1;
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+section.active {
+  display: block;
+}
+
+/* POČETNA */
+.page-section {
+  padding: 2rem 1.5rem 6rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text);
+  text-align: center;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.home-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.home-header .accent {
+  color: var(--accent);
+}
+
+.home-header p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.home-image {
+  width: 220px;
+  max-width: 100%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  border-radius: 1rem;
+}
+
+.home-text {
+  flex: 1 1 300px;
+  max-width: 450px;
+}
+
+.home-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.home-text p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  color: white;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+#bottom-nav a.active svg {
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* === Features sekcija === */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  text-align: center;
+  max-width: 250px;
+  flex: 1 1 200px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  width: 48px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* === Testimonials sekcija === */
+.testimonials {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.testimonials cite {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+/* === CTA sekcija === */
+.cta {
+  margin-top: 3rem;
+  padding: 2rem 1rem;
+  background-color: var(--accent);
+  color: white;
+  text-align: center;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cta h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.cta .btn-primary {
+  background-color: white;
+  color: var(--accent);
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta .btn-primary:hover {
+  background-color: var(--accent-hover);
+  color: white;
+}
+/* LISTE - KARTICE */
+.list-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.list-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: 0 2px 8px var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+  width: 100%;
+  max-width: 320px;
+}
+
+.list-card h3 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.list-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px var(--accent);
+}
+.list-preview {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+/* NOVA LISTA */
+.create-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.create-list input {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border-radius: var(--border-radius);
+  background-color: #3a3f61;
+  color: var(--text);
+  border: none;
+  max-width: 220px;
+  flex: 1 1 auto;
+}
+
+.create-list input:focus {
+  outline: none;
+  background-color: #505a87;
+}
+
+.create-list .btn-primary {
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* Unos stavki */
+.list-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.list-input input[type="text"],
+.list-input input[type="date"] {
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.list-input button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: var(--accent);
+  border-radius: var(--border-radius);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+.list-input button:hover {
+  background-color: var(--accent-hover);
+}
+/* Responsive za male ekrane */
+@media (max-width: 480px) {
+  .list-card {
+    width: 100%;
+  }
+
+  .create-list {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .create-list input,
+  .create-list .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .list-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .list-input input,
+  .list-input button {
+    width: 100%;
+  }
+}
+.page-section {
+  padding: 2rem 1rem 6rem;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.create-list,
+.list-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.create-list input,
+.list-input input[type="text"],
+.list-input input[type="date"] {
+  flex: 1 1 100%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: #3a3f61;
+  color: var(--text);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.create-list input:focus,
+.list-input input:focus {
+  outline: none;
+  background-color: #505a87;
+}
+
+.create-list .btn-primary,
+.list-input button {
+  flex: 1 1 100%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+/* Stavke u listi (moderniji dizajn) */
+.task-item {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.task-item.done {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+.task-item-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Skrivanje nativnog checkboxa */
+.task-item-left input[type="checkbox"] {
+  display: none;
+}
+
+/* Custom dugme za označavanje */
+.task-item-left .custom-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.task-item-left .custom-check::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Kada je označeno */
+.task-item.done .custom-check {
+  border-color: var(--accent);
+}
+
+.task-item.done .custom-check::after {
+  opacity: 1;
+}
+
+
+.task-item-text {
+  font-size: 1.1rem;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.task-item-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}
+
+/* Dugme za uklanjanje */
+.task-item-remove {
+  background-color: #ff6161;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task-item-remove:hover {
+  background-color: #e14a4a;
+}
+.flatpickr-input {
+  background-color: #3a3f61;
+  color: var(--text);
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  width: 100%;
+}
+
+.flatpickr-calendar {
+  background-color: var(--card-bg);
+  color: var(--text);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+#account {
+  padding: 1rem 0;
+}
+
+.account-info, .account-settings {
+  background-color: var(--card-bg);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+  margin-bottom: 1rem;
+}
+
+.account-info h2, .account-settings h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.account-info p {
+  margin-bottom: 0.25rem;
+  color: var(--text-muted);
+}
+
+.account-settings label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.account-settings input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: #3a3f61;
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color var(--transition);
+}
+
+.account-settings input:focus {
+  outline: none;
+  background-color: #505a87;
+}
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+
+.auth-buttons .btn-primary,
+.auth-buttons .btn-secondary {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition);
+  border: none;
+}
+
+.auth-buttons .btn-secondary {
+  background-color: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.auth-buttons .btn-secondary:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+.auth-form {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+  margin-top: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-form input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem; /* <<< razmak između polja */
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: #3a3f61;
+  color: var(--text);
+}
+
+.auth-form input:focus {
+  outline: none;
+  background-color: #505a87;
+}
+.auth-form button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+.auth-form button:hover {
+  background-color: var(--accent-hover);
+}
+.user-info-card {
+  background-color: var(--card-bg);
+  color: var(--text);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.user-info-card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.user-info-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.user-info {
+  background-color: var(--card-bg);
+  color: var(--text);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px var(--shadow);
+  text-align: left;
+  margin: 1rem auto;
+  max-width: 400px;
+}
+.user-info h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+#logoutBtn.btn-secondary {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color var(--transition);
+  margin-top: 1rem;
+}
+
+#logoutBtn.btn-secondary:hover {
+  background-color: var(--accent-hover);
+}
+
+.user-field {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.user-field strong {
+  color: var(--text-muted);
+  margin-right: 5px;
+}
+
+.settings-section {
+  margin-top: 30px;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.settings-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+
+.settings-icon:hover {
+  color: var(--accent);
+}
+
+.settings-popup {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 250px;
+  background-color: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px var(--shadow);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  z-index: 1000;
+  display: none;
+  color: var(--text);
+}
+.settings-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-popup h3 {
+  margin-top: 0;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.settings-popup li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--text-muted);
+  text-align: center;
+  cursor: pointer;
+  color: var(--text);
+  transition: background-color var(--transition);
+}
+.settings-popup li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.settings-popup li:last-child {
+  border-bottom: none;
+  color: #ff6161;
+}
+.settings-popup li:last-child:hover {
+  background-color: rgba(255, 97, 97, 0.15);
+}
+.settings-list li:last-child {
+  border-bottom: none;
+}
+.settings-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-popup ul li {
+  margin-bottom: 0.5rem;
+}
+
+.settings-popup h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+.settings-list a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 15px;
+}

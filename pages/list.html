@@ -1,0 +1,30 @@
+<section id="list" class="page-section">
+  <header class="list-header">
+    <h1>Moje Liste</h1>
+    <p>Izaberi listu za kupovinu ili napravi novu.</p>
+  </header>
+
+  <div id="listSelector" class="list-selector">
+    <!-- Kartice se ubacuju ovde -->
+  </div>
+
+  <div class="create-list">
+    <input type="text" id="newListName" placeholder="Naziv nove liste" />
+    <button id="createListBtn" class="btn-primary">+ Nova Lista</button>
+  </div>
+
+  <!-- Ova sekcija se prikazuje kada korisnik izabere listu -->
+  <div id="activeListContainer" style="display: none;">
+    <h2 id="activeListTitle"></h2>
+
+    <div class="list-input">
+      <input type="text" id="itemName" placeholder="Unesi stavku (npr. mleko)" />
+      <input type="date" id="itemDeadline" />
+      <button id="addItem">+</button>
+    </div>
+
+    <div id="itemList" class="shopping-list">
+      <!-- Stavke se prikazuju ovde -->
+    </div>
+  </div>
+</section>
