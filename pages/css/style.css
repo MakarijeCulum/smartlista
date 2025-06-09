@@ -759,16 +759,35 @@ section.active {
 }
 
 .user-info {
-  background-color: var(--card-bg);
-  color: var(--text);
-  padding: 1.5rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 8px var(--shadow);
+  background-color: #262b40;
+  padding: 1.2rem;
+  border-radius: 10px;
+  color: #ddd;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
   text-align: left;
-  margin: 1rem auto;
-  max-width: 400px;
-  height: max-content;
 }
+
+.user-info .user-field {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.user-info .user-field strong {
+  color: #ccc;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.user-info .user-field span {
+  color: #fff;
+  font-weight: 500;
+}
+
 
 .user-info h2 {
   font-size: 1.4rem;
@@ -777,15 +796,8 @@ section.active {
   color: var(--accent);
 }
 
-.user-info .user-field {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  text-align: left;
-}
-
 #logoutBtn {
   align-self: flex-end;
-  margin-top: auto;
 }
 
 #logoutBtn.btn-secondary {
@@ -807,7 +819,7 @@ section.active {
 .logout-container {
   display: flex;
   justify-content: flex-end;
-  margin-top: 20dvh;
+  margin-top: 10dvh;
 }
 
 .user-field {
