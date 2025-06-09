@@ -1,54 +1,63 @@
-<section id="account" class="page-section">
+<section class="page-section" id="account">
   <header class="account-header">
-    <h1>Nalog</h1>
-    <p>Pregled vašeg korisničkog naloga i podešavanja.</p>
-    <div id="settingsIcon" class="settings-icon" title="Podešavanja">⚙️</div>
-  </header>
+    <header class="account-header">
+      <h1>Nalog</h1>
+      <p id="accountSubtitle">Pregled vašeg korisničkog naloga i podešavanja.</p>
+      <div class="settings-icon" id="settingsIcon" title="Podešavanja">⚙️</div>
+    </header>
 
-  <!-- Ako korisnik NIJE prijavljen -->
-  <div id="authOptions" class="auth-buttons">
-    <button id="showLogin" class="btn-primary">Prijava</button>
-    <button id="showRegister" class="btn-secondary">Registracija</button>
-  </div>
-
-  <div id="loginForm" class="auth-form" style="display: none;">
-    <h2>Prijava</h2>
-    <input type="email" id="loginEmail" placeholder="Email" />
-    <input type="password" id="loginPassword" placeholder="Lozinka" />
-    <button id="loginSubmit" class="btn-primary">Prijavi se</button>
-  </div>
-
-  <div id="registerForm" class="auth-form" style="display: none;">
-    <h2>Registracija</h2>
-    <input type="text" id="registerName" placeholder="Ime i prezime" />
-    <input type="email" id="registerEmail" placeholder="Email" />
-    <input type="password" id="registerPassword" placeholder="Lozinka" />
-    <button id="registerSubmit" class="btn-primary">Registruj se</button>
-  </div>
-
-  <!-- Ako korisnik JESTE prijavljen -->
-  <div id="userInfo" class="user-info" style="display: none;">
-    <h2 id="userGreeting">Dobrodošli!</h2>
-    <div class="user-field">
-      <strong>Ime i prezime:</strong> <span id="userName">(učitavanje...)</span>
+    <!-- Ako korisnik NIJE prijavljen -->
+    <div class="auth-buttons" id="authOptions">
+      <button class="btn-primary" id="showLogin">Prijava</button>
+      <button class="btn-secondary" id="showRegister">Registracija</button>
     </div>
-    <div class="user-field">
-      <strong>Email:</strong> <span id="userEmail"></span>
+    <div class="auth-form" id="loginForm" style="display: none;">
+      <h2>Prijava</h2>
+      <input id="loginEmail" placeholder="Email" type="email" />
+      <input id="loginPassword" placeholder="Lozinka" type="password" />
+      <button class="btn-primary" id="loginSubmit">Prijavi se</button>
     </div>
-    <div class="user-field">
-      <strong>ID korisnika:</strong> <span id="userId"></span>
+    <div class="auth-form" id="registerForm" style="display: none;">
+      <h2>Registracija</h2>
+      <input id="registerName" placeholder="Ime i prezime" type="text" />
+      <input id="registerEmail" placeholder="Email" type="email" />
+      <input id="registerPassword" placeholder="Lozinka" type="password" />
+      <button class="btn-primary" id="registerSubmit">Registruj se</button>
     </div>
-    <button id="logoutBtn" class="btn-secondary">Odjava</button>
-  </div>
+    <!-- Ako korisnik JESTE prijavljen -->
+    <div id="userInfo" class="user-info" style="display: none;">
+      <div class="user-field">
+        <strong>Ime i prezime:</strong> <span id="userName">(učitavanje...)</span>
+      </div>
+      <div class="user-field">
+        <strong>Email:</strong> <span id="userEmail"></span>
+      </div>
+      <div class="user-field">
+        <strong>ID korisnika:</strong> <span id="userId"></span>
+      </div>
+      <div class="user-field">
+        <strong>Broj lista:</strong> <span id="userListCount"></span>
+      </div>
+      <div class="logout-container">
+        <button id="logoutBtn" class="btn-secondary">Odjava</button>
+      </div>
+    </div>
 
-  <!-- Popup podešavanja -->
-  <div id="settingsPopup" class="settings-popup">
-    <h3>Podešavanja</h3>
-    <ul class="settings-list">
-      <li><a href="#">Notifikacije (uskoro)</a></li>
-      <li><a href="#">Light / Dark mod (uskoro)</a></li>
-      <li><a href="#">Kontakt podrška (uskoro)</a></li>
-      <li><a href="#" id="logoutLink">Odjavi se</a></li>
-    </ul>
-  </div>
+    <!-- Popup podešavanja -->
+    <div class="settings-popup" id="settingsPopup">
+      <h3>Podešavanja</h3>
+      <ul class="settings-list">
+        <li id="showInvites">🔔 Notifikacije</li>
+        <li><a href="#">Light / Dark mod (uskoro)</a></li>
+        <li><a href="#">Kontakt podrška (uskoro)</a></li>
+        <li><a href="#" id="logoutLink">Odjavi se</a></li>
+      </ul>
+    </div>
+    <!-- Sekcija za prikaz poziva -->
+    <div id="invitesSection" style="display: none; padding: 1rem;">
+      <h3>Pozivi za deljenje lista</h3>
+      <ul id="inviteList" style="list-style-type: none; padding-left: 0;"></ul>
+      
+    </div>
+
 </section>

@@ -1,5 +1,7 @@
 <section id="list" class="page-section">
-  <header class="list-header">
+
+  <!-- Ovo se vidi samo pre izbora liste -->
+  <header class="list-header" id="listHeader">
     <h1>Moje Liste</h1>
     <p>Izaberi listu za kupovinu ili napravi novu.</p>
   </header>
@@ -8,23 +10,62 @@
     <!-- Kartice se ubacuju ovde -->
   </div>
 
-  <div class="create-list">
+  <div class="create-list" id="createListSection">
     <input type="text" id="newListName" placeholder="Naziv nove liste" />
     <button id="createListBtn" class="btn-primary">+ Nova Lista</button>
   </div>
 
-  <!-- Ova sekcija se prikazuje kada korisnik izabere listu -->
-  <div id="activeListContainer" style="display: none;">
-    <h2 id="activeListTitle"></h2>
+  <!-- Prikaz kada korisnik izabere listu -->
+  <div id="activeListContainer" class="active-list-container" style="display: none;">
 
+    <!-- Ime liste gore levo -->
+    <!-- Dugme za povratak -->
+
+    <div class="active-list-header" style="display: flex; justify-content: space-between; align-items: center;">
+      <h2 id="activeListTitle" class="active-list-title">Kuca</h2>
+
+      <div class="list-settings-wrapper">
+        <i id="listSettingsBtn" class="settings-icon fas fa-cog"></i>
+        <div id="listSettingsDropdown" class="popup-menu" style="display: none;">
+          <ul>
+            <li onclick="showMembers()">👥 Članovi liste</li>
+            <li onclick="showShareInput()">🔗 Deli listu</li>
+            <li onclick="deleteActiveList()">🗑 Obriši listu</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Lista stavki -->
+    <div id="itemList" class="shopping-list">
+      <!-- Dinamički se prikazuju task kartice -->
+    </div>
+
+    <!-- Unos novih stavki (na dnu) -->
     <div class="list-input">
       <input type="text" id="itemName" placeholder="Unesi stavku (npr. mleko)" />
       <input type="date" id="itemDeadline" />
-      <button id="addItem">+</button>
+      <button id="addItem" class="btn-primary">+</button>
     </div>
 
-    <div id="itemList" class="shopping-list">
-      <!-- Stavke se prikazuju ovde -->
+    <!-- Deljenje liste -->
+    <div id="shareSection" class="share-section" style="display: none;">
+      <input id="shareEmail" type="email" placeholder="Unesite e-mail za deljenje" />
+      <button id="shareBtn" class="btn-primary">Podeli listu</button>
     </div>
+
+
+    <!-- Sekcija sa članovima liste -->
+    <div id="listMembersContainer" class="user-info" style="display: none;">
+      <h2>Članovi liste</h2>
+      <ul id="listMembers" style="list-style: none; padding-left: 0;"></ul>
+    </div>
+
+
+    <button id="backToListsBtn" class="btn-secondary">← Nazad na sve liste</button>
+    <button id="backToItemsBtn" class="btn-secondary" style="display: none;">← Nazad na prethodnu listu</button>
+
   </div>
 </section>
